@@ -1,0 +1,50 @@
+#display {
+    width: 195px;
+    height: 80px;
+    background-color: silver;
+    margin-bottom: 5px;
+    font-size: 16.5pt;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#symbol-numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 160px;
+}
+
+.symbol-number {
+    width: 50px;
+    height: 50px;
+    flex: auto;
+}
+
+#button-reset {
+    width: 50px;
+    height: 50px;
+    flex: auto;
+    background-color: red;
+}
+
+#symbol-operators {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    margin-left: 5px;
+}
+
+.symbol-operator {
+    width: 40px;
+    height: 40px;
+    flex: auto; 
+    background-color: orange;
+}
