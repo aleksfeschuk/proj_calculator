@@ -6,7 +6,8 @@ function bufferAppend(str) {
 }
 
 function digitEntered(digit) {
-    console.log("Entering digit", digit)
+    bufferAppend(digit)
+    printOnDisplay(buffer)
 }
 
 function opSelected(op) {
