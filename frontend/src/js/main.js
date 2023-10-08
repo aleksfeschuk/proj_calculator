@@ -7,7 +7,11 @@ function bufferSet(str) {
 }
 
 function bufferAppend(str) {
-    bufferSet(buffer + str)
+    if (buffer === '0') {
+        bufferSet(str)
+    } else {
+        bufferSet(buffer + str)
+    }
 }
 
 function digitEntered(digit) {
@@ -25,7 +29,7 @@ function resetClicked() {
 
 function attachHandlers() {
     for(let i = 0; i < 10; i++) {
-        document.querySelector("#button-" + i).onclick = () => digitEntered(i)
+        document.querySelector("#button-" + i).onclick = () => digitEntered(i.toString())
     } 
     document.querySelector("#button-plus").onclick = () => opSelected("+")
     document.querySelector("#button-minus").onclick = () => opSelected("-")
