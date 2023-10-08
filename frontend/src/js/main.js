@@ -1,17 +1,25 @@
 let buffer = ""
 
+
+function bufferSet(str) {
+    buffer = str
+    printOnDisplay(buffer)
+}
+
 function bufferAppend(str) {
-    buffer += str
-    console.log(buffer)
+    bufferSet(buffer + str)
 }
 
 function digitEntered(digit) {
     bufferAppend(digit)
-    printOnDisplay(buffer)
 }
 
 function opSelected(op) {
     console.log("Calculating result")
+}
+
+function resetClicked() {
+    bufferSet("0")
 }
 
 
@@ -24,7 +32,8 @@ function attachHandlers() {
     document.querySelector("#button-multiply").onclick = () => opSelected("*")
     document.querySelector("#button-divide").onclick = () => opSelected("/")
 
-    document.querySelector("#button-equal").onclick = () => equalClicked("=")
+    document.querySelector("#button-equal").onclick = () => equalClicked()
+    document.querySelector("#button-reset").onclick = () => resetClicked()
 }
 
 attachHandlers()
