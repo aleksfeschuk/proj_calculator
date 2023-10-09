@@ -19,19 +19,32 @@ function calculateAndLoop() {
     const b = Number(buffer)
     const op = getOp()
 
-    if (a !== null && op !== null) {
+    if (op !== null) {
         result = calculate(op, a, b)
         bufferSet(result)
         setPowerset(null)
-
+        Registers.set('a', null)
+        Registers.set('op', null)
         return result
     }
 }
 
+/**
+ * Sets operator to given value.
+ *
+ * @param {string} operator
+ *
+ * When operator is entered, we assume that entering first number is complete, so we parse buffer,
+ * and set `a` to its numeric representation. We also set operator to a given value.
+ * We set buffer to "0" which will be default value of `b`
+ */
+
 
 
 function opSelected(op) {
-    if(getA() !== null && getOp() !== null) {
+     // When user selects operator after entering second number,
+  // we calculate result, as it's done in typical calculator
+    if(Registers.get('op') !== null) {
         calculateAndLoop()
     }
 
