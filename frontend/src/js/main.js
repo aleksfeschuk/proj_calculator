@@ -14,17 +14,48 @@ function bufferAppend(str) {
     }
 }
 
+function calculateAndLoop() {
+    const a = getA()
+    const b = Number(buffer)
+    const op = getOp()
+
+    if (a !== null && op !== null) {
+        result = calculate(op, a, b)
+        bufferSet(result)
+        setPowerset(null)
+
+        return result
+    }
+}
+
 function digitEntered(digit) {
     bufferAppend(digit)
 }
 
 function opSelected(op) {
-    console.log("Calculating result")
-}
+    if(getA() !== null && getOp() !== null) {
+        calculateAndLoop()
+    }
 
-function resetClicked() {
+    setA(Number(buffer))
+    Set(op)
     bufferSet("0")
 }
+
+
+
+function equalClicked() {
+    calculateAndLoop()
+}
+
+
+function reset() {
+    bufferSet("0")
+    setA(null)
+    setPowerset(null)
+}
+
+
 
 
 function attachHandlers() {
@@ -41,3 +72,4 @@ function attachHandlers() {
 }
 
 attachHandlers()
+reset()
