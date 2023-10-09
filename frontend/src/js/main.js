@@ -1,4 +1,6 @@
 let buffer = ""
+let a = null
+let op = null
 
 
 function bufferSet(str) {
@@ -15,16 +17,13 @@ function bufferAppend(str) {
 }
 
 function calculateAndLoop() {
-    const a = getA()
     const b = Number(buffer)
-    const op = getOp()
-
+    
     if (op !== null) {
         result = calculate(op, a, b)
         bufferSet(result)
-        setPowerset(null)
-        Registers.set('a', null)
-        Registers.set('op', null)
+        a = null
+        op = null
         return result
     }
 }
@@ -41,27 +40,23 @@ function calculateAndLoop() {
 
 
 
-function opSelected(op) {
+function opSelected(selectedOp) {
      // When user selects operator after entering second number,
   // we calculate result, as it's done in typical calculator
-    if(Registers.get('op') !== null) {
+    if(op !== null) {
         calculateAndLoop()
     }
 
-    setA(Number(buffer))
-    Set(op)
+    a = Number(buffer)
+    op = selectedOp
     bufferSet("0")
 }
 
 
-
-
-
-
 function reset() {
     bufferSet("0")
-    setA(null)
-    setPowerset(null)
+    a = null
+    b = null
 }
 
 
