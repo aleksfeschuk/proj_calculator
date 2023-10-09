@@ -60,15 +60,15 @@ function reset() {
 
 function attachHandlers() {
     for(let i = 0; i < 10; i++) {
-        document.querySelector("#button-" + i).onclick = () => digitEntered(i.toString())
+        document.querySelector("#button-" + i).onclick = () => bufferAppend(i.toString())
     } 
     document.querySelector("#button-plus").onclick = () => opSelected("+")
     document.querySelector("#button-minus").onclick = () => opSelected("-")
     document.querySelector("#button-multiply").onclick = () => opSelected("*")
     document.querySelector("#button-divide").onclick = () => opSelected("/")
 
-    document.querySelector("#button-equal").onclick = () => equalClicked()
-    document.querySelector("#button-reset").onclick = () => resetClicked()
+    document.querySelector("#button-equal").onclick = () => calculateAndLoop()
+    document.querySelector("#button-reset").onclick = () => reset()
 }
 
 attachHandlers()
