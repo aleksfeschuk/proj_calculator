@@ -28,9 +28,7 @@ function calculateAndLoop() {
     }
 }
 
-function digitEntered(digit) {
-    bufferAppend(digit)
-}
+
 
 function opSelected(op) {
     if(getA() !== null && getOp() !== null) {
@@ -44,9 +42,7 @@ function opSelected(op) {
 
 
 
-function equalClicked() {
-    calculateAndLoop()
-}
+
 
 
 function reset() {
