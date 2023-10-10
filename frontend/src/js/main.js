@@ -4,7 +4,18 @@ let op = null
 
 
 function calculate(op, a, b) {
-    return a + b
+    switch (op) {
+        case "+":
+            return a + b;
+        case "-":
+            return a - b;
+        case "*":
+            return a * b;
+        case "/":
+            return a / b;
+        default:
+            console.error('Operation', op, 'is not supported.')
+    }
 }
 
 function printOnDisplay(txt) {
