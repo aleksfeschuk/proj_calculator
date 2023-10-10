@@ -74,6 +74,13 @@ function opSelected(selectedOp) {
 }
 
 
+function decimalSeparatorEntered() {
+    if(!buffer.includes('.')) {
+        bufferAppend('.')
+    }
+}
+
+
 function reset() {
     bufferSet("0")
     a = null
@@ -86,12 +93,12 @@ function reset() {
 function attachHandlers() {
     for(let i = 0; i < 10; i++) {
         document.querySelector("#button-" + i).onclick = () => bufferAppend(i.toString())
-    } 
+    }
+    document.querySelector("#button-decimal").onclick = () => decimalSeparatorEntered() 
     document.querySelector("#button-plus").onclick = () => opSelected("+")
     document.querySelector("#button-minus").onclick = () => opSelected("-")
     document.querySelector("#button-multiply").onclick = () => opSelected("*")
     document.querySelector("#button-divide").onclick = () => opSelected("/")
-
     document.querySelector("#button-equal").onclick = () => calculateAndLoop()
     document.querySelector("#button-reset").onclick = () => reset()
 }
