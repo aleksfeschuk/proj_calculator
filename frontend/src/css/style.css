@@ -10,6 +10,21 @@
     flex-wrap: wrap;
 }
 
+#display-a {
+    flex: auto;
+    min-width: 195px;
+}
+
+#display-op {
+    flex: auto;
+    min-width: 195px;
+}
+
+#display-b {
+    flex: auto;
+    min-width: 195px
+}
+
 #buttons {
     display: flex;
     flex-direction: row;

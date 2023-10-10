@@ -19,12 +19,15 @@ function calculate(op, a, b) {
 }
 
 function refreshDisplay() {
-    let txt = buffer
-    if(op !== null) {
-        txt = `${a} ${op} ${buffer}`
-    }
-    const display = document.querySelector("#display")
-    display.textContent = txt
+   const displayA = document.querySelector("#display-a")
+   displayA.textContent = a
+   displayA.hidden = (a === null)
+
+   const displayOp = document.querySelector("#display-op")
+   displayOp.hidden = (op === null)
+   displayOp.textContent = op
+
+   document.querySelector("#display-b").textContent = buffer
 } 
 
 function bufferSet(str) {
@@ -40,10 +43,19 @@ function bufferAppend(str) {
     }
 }
 
+/**
+ * Resets the calculator state.
+ *
+ * We need a buffer to always have default value, so when user is skipping entering `a`,
+ * and immideatelly enters `op`, the value of `a` will be 0.
+ * We also clear `a` and `op` so user can either start entering `a` or choose `op`.
+ */
+
 function reset() {
     bufferSet("0")
     a = null
     b = null
+    op = null
 }
 
 function calculateAndLoop() {
