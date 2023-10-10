@@ -18,15 +18,18 @@ function calculate(op, a, b) {
     }
 }
 
-function printOnDisplay(txt) {
-    const display =
-    document.querySelector("#display")
+function refreshDisplay() {
+    let txt = buffer
+    if(op !== null) {
+        txt = `${a} ${op} ${buffer}`
+    }
+    const display = document.querySelector("#display")
     display.textContent = txt
 } 
 
 function bufferSet(str) {
     buffer = str
-    printOnDisplay(buffer)
+    refreshDisplay()
 }
 
 function bufferAppend(str) {
@@ -38,13 +41,13 @@ function bufferAppend(str) {
 }
 
 function calculateAndLoop() {
-    const b = Number(buffer)
-    
     if (op !== null) {
-        result = calculate(op, a, b)
-        bufferSet(result)
+        const b = Number(buffer)
+        const result = calculate(op, a, b)
         a = null
         op = null
+        bufferSet(result)
+
         return result
     }
 }
