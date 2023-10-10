@@ -40,6 +40,12 @@ function bufferAppend(str) {
     }
 }
 
+function reset() {
+    bufferSet("0")
+    a = null
+    b = null
+}
+
 function calculateAndLoop() {
     if (op !== null) {
         const b = Number(buffer)
@@ -67,9 +73,7 @@ function calculateAndLoop() {
 function opSelected(selectedOp) {
      // When user selects operator after entering second number,
   // we calculate result, as it's done in typical calculator
-    if(op !== null) {
-        calculateAndLoop()
-    }
+    calculateAndLoop()
 
     a = Number(buffer)
     op = selectedOp
@@ -82,15 +86,6 @@ function decimalSeparatorEntered() {
         bufferAppend('.')
     }
 }
-
-
-function reset() {
-    bufferSet("0")
-    a = null
-    b = null
-}
-
-
 
 
 function attachHandlers() {
