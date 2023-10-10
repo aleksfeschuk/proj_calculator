@@ -3,6 +3,16 @@ let a = null
 let op = null
 
 
+function calculate(op, a, b) {
+    return a + b
+}
+
+function printOnDisplay(txt) {
+    const display =
+    document.querySelector("#display")
+    display.textContent = txt
+} 
+
 function bufferSet(str) {
     buffer = str
     printOnDisplay(buffer)
